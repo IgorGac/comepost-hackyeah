@@ -32,6 +32,11 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col" id="sliderHolder">
+                    
+                </div>
+            </div>
+            <div class="row">
                 <div class="col">
                     <div class="filter-container delivery-options">
                         <button onclick="changePickupOption()" id="popupDeliveryButton1" class="filter-oldest filter-button filter-inactive delivery-button">I need delivery</button>
@@ -160,6 +165,8 @@
     const popupItemname = document.querySelector("#popupItemname")
     const popupDesc = document.querySelector("#popupDesc")
     const popupAmount = document.querySelector("#popupAmount")
+    const sliderHolder = document.querySelector("#sliderHolder")
+    let amount_value = 0
     function displayPopup(element){
         console.log(element)
         popup.style.display = "block";
@@ -167,14 +174,25 @@
         let desc = element.querySelector(".offer-desc");
         let item = element.querySelector(".offer-item");
         let amount = element.querySelector(".offer-amount-number")
+        amount_value = amount.innerHTML
+        let slider = `<input id='slider' onchange='updateSlider()' style='display: block; margin: auto;' type="range" min="1" value="100" max="${amount.innerHTML*50}">`
+        let info = `<br><span id='slider-info' style='text-align: center;'>This will cost you: ${amount.innerHTML*50}kg of biowaste for ${amount.innerHTML} of product.`
         
         popupOwner.innerHTML = owner.innerHTML
         popupDesc.innerHTML = desc.innerHTML
         popupItemname.innerHTML = item.innerHTML
         popupAmount.innerHTML = "Amount: " + amount.innerHTML
+        sliderHolder.innerHTML = slider
+        sliderHolder.innerHTML += info
     }
     function closePopup(){
         popup.style.display = "none";
+    }
+    
+    function updateSlider(){
+        const slider_info = document.querySelector("#slider-info")
+        slider_info.innerHTML = `This will cost you: ${document.querySelector("#slider").value}kg of biowaste for ${document.querySelector("#slider").value/50}kg of fresh product.`
+
     }
     const but1 = document.querySelector("#popupDeliveryButton1")
     const but2 = document.querySelector("#popupDeliveryButton2")
