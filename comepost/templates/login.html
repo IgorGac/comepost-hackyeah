@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/forms.css') }}">
+<div class="panel">
+    
+    <div class="kreska">
+    <h3 class="panel-title" style="z-index:1;position:relative">Great to see you again!</h3>
+    <img  class="underline" src="{{ url_for('static', filename='/img/underline.png') }}">
+        </div>
+
+    <div class="panel-content">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+        <form method="POST", action="/login">
+            <input type="text" class="panel-input" name="email" placeholder="E-mail" required>
+            <input type="password" class="panel-input" name="password" placeholder="Password" required>
+            <input type="submit" value="Log In" class="panel-submit">
+        </form>
+    </div> 
+</div>
+{% endblock %}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ComePost</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/base.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/img/favicon.png') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        <nav class="navbar-main">
+            <div class="navbar-logo-container">
+                <a href="/"><img  src="{{ url_for('static', filename='/img/logo.png') }}" class="navbar-logo"></a>
+            </div>
+            
+
+            <div class="navbar-links">
+
+                <a href="/" class="navbar-link">Homepage</a>
+                <a href="/individuals" class="navbar-link">Individuals</a>
+                <a href="/market" class="navbar-link">Market</a>
+                {% if not current_user.is_authenticated %}
+                <a href="/signup" class="navbar-link">Signup</a>
+                <a href="login" class="navbar-link link-button">Login</a>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <a href="/logout" class="navbar-link link-button">Log out</a>
+                <a href="/dashboard"><i class="navbar-profile bi bi-person-circle"></i></a>
+                {% endif %}
+            </div>
+        </nav>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="footer-separator"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-3"><a href="/">
+                    <img  src="{{ url_for('static', filename='/img/logo.png') }}" class="navbar-logo"></a>
+                    <p class="footer-paragraph">Start trading the compost for fresh fruits and vegetables with us!</p>
+                </div>
+                <div class="col-2">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="footer-title">Company</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="footer-link">Job Offers</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="footer-link">Careers</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="footer-link">Mobile</a>
+                        </div>
+                    </div>                                        
+                </div>
+                <div class="col-2">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="footer-title">Contact</h3>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="footer-link">Help/FAQ</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="footer-link">Press</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="footer-link">Affilates</a>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-2">
+                    <div class="row">
+                        <div class="col"><h3 class="footer-title">More</h3></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="footer-link">Trade fees</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="footer-link">Data</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="footer-link">Learn more</a>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-3">
+                    <div class="row" style="margin-top: -20px;">
+                        <div class="col"><i style="font-size: 2.2em;" class="bi bi-facebook"></i></div>
+                        <div class="col"><i style="font-size: 2.2em;" class="bi bi-instagram"></i></div>
+                        <div class="col"><i style="font-size: 2.2em;" class="bi bi-twitter"></i></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="footer-subtitle">
+                                Thanks for having us!
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <img class="footer-logo" src="{{ url_for('static', filename='/img/logo-hackyeah.jpg') }}">
+                        </div>
+                        <div class="col">
+                            <img class="footer-logo" src="{{ url_for('static', filename='/img/logo-malopolska.jpg') }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col footer-bottom">All rights reserved@comepost.co</div>
+            </div>
+        </div>
+        
+    </body>
+</html>

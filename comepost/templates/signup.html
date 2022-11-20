@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/forms.css') }}">
+<div class="panel">
+ <div class="kreska">
+    <h3 class="panel-title" style="z-index:1;position:relative">Welcome to our family!</h3>
+    <img  class="underline" src="{{ url_for('static', filename='/img/underline.png') }}">
+        </div>
+    <div class="panel-content">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="error">
+                {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+            </div>
+        {% endif %}
+        {% endwith %}        
+        <form method="POST", action="/signup">
+            <input type="text" class="panel-input" name="name" placeholder="Name" required>
+            <input type="text" class="panel-input" name="email" placeholder="E-mail" required>
+            <input type="password" class="panel-input" name="password" placeholder="Password" required>
+
+            <input type="radio" id="radio-store" name="account-type" value="store" checked>
+            <label for="radio-store">I'm a store manager</label>
+            <input type="radio" id="radio-farmer" name="account-type" value="farmer">
+            <label for="radio-farmer">I'm a farmer</label>
+
+            <input type="submit" value="Sign Up" class="panel-submit">
+        </form>
+        <span class="panel-span">Already have an account? <a href="/login">Log In</a></span>
+    </div>
+</div>
+{% endblock %}

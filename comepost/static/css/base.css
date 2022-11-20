@@ -1,0 +1,136 @@
+body{
+    margin: 0;
+    overflow-x: hidden;
+
+}
+
+p {
+    font-family:Poppins;
+    font-weight:regular;
+    font-size:0.9rem;
+    color:#5e6282;
+    line-height: 1rem;
+}
+
+h1 {
+    
+    font-family:Volkhov;
+    font-weight:bold;
+    font-size:4.25rem;
+     color: #6E9277;
+    letter-spacing: -3px;
+    
+}
+
+h2 {
+    
+       font-family:Volkhov;
+    font-weight:bold;
+    font-size:3.125rem;
+     color: #14183e;
+}
+
+h3 {
+        font-family:Poppins;
+    font-weight:regular;
+    font-size:1rem;
+    color:#95C461;
+    text-transform: uppercase;
+    }
+
+h4 {
+    font-family: OpenSans;
+    font-weight: semibold;
+    font-size:1.25rem;
+    line-height: 1.5rem;
+}
+
+h5 {
+        font-family:Poppins;
+    font-weight:semibold;
+    font-size:1.125rem;
+
+}
+
+.navbar-main{
+    width: 100vw;
+    padding: 10px 100px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+
+    justify-content: space-between;
+    
+
+}
+.navbar-logo{
+    width: 250px;
+    height: 50px;
+}
+.navbar-logo-container{
+    display: inline;
+    float: left;
+}
+.navbar-links{
+    display: inline;
+    color: #000;
+    font-size: 1.2em;
+    margin-right: 200px; 
+    
+}
+.navbar-link{
+    text-decoration: none;
+    color: #000;
+    margin: 0px 15px 0px 15px;
+    padding: 10px;
+    font-family: 'PT Sans', sans-serif;
+
+}
+.link-button{
+    padding: 5px 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+.footer-separator{
+    width: 100%;
+    border-bottom: 1px solid #000;
+    margin-bottom: 30px;
+}
+.footer-paragraph{
+    color: #5E6282;
+    font-family: "PT Sans";
+    margin-top: 30px;
+}
+.footer-title{
+    font-family: 'PT Sans';
+    font-weight: bold;
+    color: #000;
+    font-size: 1.2em;
+}
+.footer-link{
+    color: #5E6282;
+    font-family: "PT Sans";
+    text-decoration: none;
+    font-size: 1.1em;
+}
+.footer-subtitle{
+    font-size: 1.3em;
+    color:#5E6282;
+    font-family: "PT Sans";
+    margin-top: 7px;
+}
+.footer-logo{
+    width: 100px;
+}
+.footer-bottom{
+    text-align: center;
+    color: #5E6282;
+    font-family: "PT Sans";
+    font-size: 1.1em;
+}
+.navbar-profile{
+    color: #000;
+    font-size: 1.7em;
+    margin-top: 51px;
+}

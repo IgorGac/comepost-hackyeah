@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/individual.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/base.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+<div class="row" style="padding-bottom:5%">
+    <div class="col-5">
+        <h1 class="headline"> You can actually do <u>a lot!</u></h1>
+        <h3 style="text-transform:none !important; font-size:1.2rem">For Example:</h3>
+        <ul><h5 style="font-weight: 100; color:#5E6282; line-height: 1.3rem;font-size:1rem">
+        <li>You can start with focusing on your daily habits - sorting your wastes can lead to big things!</li><br>
+        <li>At ComePost we actually believe that all big things start with simple steps. We encourage bringing your collected waste to the collection facilities near you <a href="" class="map-link">(check out our map)</a></li><br>
+        <li>In addition, if you bring the compost materials to the listed stores, you can expect special offers and benefits predetermined by the store managers</li><br>
+        <li>It will make shopping for groceries pleasent and will help you start the cycle over again</li>
+       </h5> </ul>
+    </div>
+      <div class="col-7">
+
+          <img src="{{ url_for('static', filename='/img/cycle-02.png') }}" class="cycle">
+    </div>
+</div>
+
+<div class="row">
+    <div style="text-align: center;">
+    <h5 style="color:#5e6282">Learn how to sort your trash</h5>
+        <h2 style="color: #14183E;">What counts as bio waste?</h2>
+    </div>
+    </div>
+<div class="container">
+ <div class="row" style="padding-top: 2%">   
+    <div class="col-12 tak">
+        <i class="bi bi-check ikona"></i>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12 tak2">
+        
+        
+        <ul><h5 style="font-weight: 100; color:#5E6282;">
+        <li>kitchen waste, for instance peelings, leftover vegetables and fruit, eggshells, coffee/tea
+grounds, stale bread</li><br>
+        <li>leaves, sprouts, plant stems</li><br>
+        <li>cut grass</li><br>
+        <li>tree bark and fine branches, hay</li><br>
+        <li>withered flowers and pot plants</li><br>
+        <li>unprinted and soft paper/cardboard (i.e. paper for wrapping food, tissues, paper towels)</li>
+            </h5></ul>
+    </div>
+    
+ 
+</div>
+
+<div class="row" style="padding-top: 50px;margin-right:-2.2rem;">
+     <div class="row">   
+        <div class="col-12 nie">
+        <i class="bi bi-x ikona2"></i>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 nie2">
+        
+        
+        <ul ><h5 style="font-weight: 100; color:#5E6282;">
+        <li  class="li2">materials such as ceramics, plastics, metals, glass or fabric – they are not composted</li><br>
+        <li  class="li2">organic matter which may contain chemicals, such as printed paper or newspapers, empty
+cardboard beverage packagings, <br>painted and impregnated wood</li><br>
+        <li  class="li2">kitchen waste such as meat, bones, fat, dairy or whole eggs which generate unpleasant odour
+when decomposing</li><br>
+        <li  class="li2">animal faeces, cat litter (for sanitary reasons)</li><br>
+        <li  class="li2">spoiled food</li><br>
+        <li  class="li2">soil, gravel, stones</li>
+            </h5></ul>
+    </div>
+ 
+</div>
+</div>
+</div> 
+
+
+<div class="container" style="padding-top:6rem">
+
+    <div class="row" style="margin-bottom: 100px">
+    
+        <div class="col-4">
+        <h2 class="check"> Check out nearby stores!</h2>
+        <h3 class="happy"> We are happy you decided to help the nature <b>♡</b> </h3>
+        <img src="{{ url_for('static', filename='/img/lemur-01.png') }}" class="lemur">    
+            
+        </div>
+        
+        <div class="col-8">
+         <img onclick="alert('This function is not available in demo version.')"src="{{ url_for('static', filename='/img/mapa.jpg') }}" class="mapa" >
+        </div>
+        
+    </div>
+    
+</div>
+
+{% endblock %}

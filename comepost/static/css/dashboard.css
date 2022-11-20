@@ -1,0 +1,24 @@
+.chart{
+    max-width: 100%;
+}
+.chart2{
+    max-width: 80%;
+}
+.lightgreen{
+    background-color: #95c461;
+}
+.darkgreen{
+    background-color: #517449;
+}
+.color-box{
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+}
+.dashboard-subtitle{
+    display: block;
+    margin-top: 40px;
+    font-size: 1.5em;
+    font-family: 'PT Sans';
+    color: #444f22;
+}

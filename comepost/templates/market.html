@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .border{
+        border: 1px solid #000;
+    }
+</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/market.css') }}">
+<div class="container popup" id="popup">
+    <div class="row popup-content">
+        <div class="col-4">
+            <div class="row">
+                <div style="text-align: center;"class="col">
+                    <h2 class="popup-owner" id="popupOwner"></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="text-align: center;">
+                    <span class="popup-subtitle">Offer description:</span>
+                    <span class="popup-description" id="popupDesc"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="text-align: center;">
+                    <span class="popupInfo" id="popupItemname"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col" style="text-align: center;">
+                    <span class="popupInfo" id="popupAmount"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="filter-container delivery-options">
+                        <button onclick="changePickupOption()" id="popupDeliveryButton1" class="filter-oldest filter-button filter-inactive delivery-button">I need delivery</button>
+                        <button onclick="changePickupOption()" id="popupDeliveryButton2" class="filter-newest filter-button filter-active delivery-button">Self pickup</button>
+                    </div>
+                </div>            
+            </div>
+            <button class="close-popup" id="close-popup" onclick="closePopup()">Close offer</button>
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col">
+                    <img onclick="alert('This function is not available in demo version.')" src="{{ url_for('static', filename='/img/popup-map.png') }}" class="popup-map">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="popup-important-checkbox">
+                        <input type="checkbox" required><span style="margin-left: 5px; font-family: 'PT Sans'; font-size:1.1em; ">I declare that I have the presented goods and will complete the offer under pain of account suspension</span>
+                    </div>
+                    
+                </div>
+                <div class="col-6">
+                    <button class="popup-submit-offer">Complete trade</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <div class="row">
+        <div class="col-8 border offers-container">
+            {% for offer in offers %}
+            <div class="offer">
+                <div class="offer-mask" onclick="displayPopup(this.parentNode)">Choose offer</div>
+                <h4 class="offer-owner">Owner: {{offer.owner}}</h4>
+                <h6 class="offer-desc-title">Offer description: </h6>
+                <p class="offer-desc">{{offer.desc}}</p>
+                <span class="offer-item">Item: {{offer.item}}</span>
+                <span class="offer-amount" style="display: inline;">Amount: <span class="offer-amount-number" style="font-weight: bold; display: inline;">{{offer.amount}}</span></span>
+                <!-- <button class="offer-button">Choose offer</button> -->
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-4 border ">
+            <div class="row">
+                <div class="col">
+                    <h2 class="offers-window-title">Offer filter</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {% if offers_filter == 'asc' %}
+                    <div class="filter-container">
+                        <button onclick="location.href='/market?filter=desc'" class="filter-oldest filter-button filter-inactive">Oldest</button>
+                        <button onclick="location.href='/market'" class="filter-newest filter-button filter-active">Newest</button>
+                    </div>
+                    {% else %}
+                    <div class="filter-container">
+                        <button onclick="location.href='/market?filter=desc'" class="filter-oldest filter-button filter-active">Oldest</button>
+                        <button onclick="location.href='/market'" class="filter-newest filter-button filter-inactive">Newest</button>
+                    </div>
+                    {% endif %} 
+                </div>
+            </div>
+            {% if current_user.is_authenticated %}
+            <div class="row border-top">
+                <div class="col">
+                    <h2 class="offers-window-title">Add your offer</h2>
+                </div>               
+            </div>
+            
+            <form action="/market", method="POST">
+                <div class="row">
+                    <div class="col">
+                        <input type="text", maxlength="200" placeholder="Offer Description" name="offerdesc" class="offer-input-center offer-input" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span class="add-offer-label">Choose product: </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select name="offerproduct" id="products" class="offer-input-center" required>
+                            {% for key, value in products.items() %}
+                            <option value="{{key}}">{{key}}</option>
+                            {% endfor %}
+                        </select>                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <span class="add-offer-label">Enter amount: </span>
+                    </div>
+                </div>  
+
+                <div class="row">
+                    <div class="col">
+                        <input type="number" name="offeramount" class="offer-input-center offer-input" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" value="Add Offer" class="add-offer-button" placeholder="Enter amount">
+                    </div>
+                </div>
+                
+            </form>
+
+            {% else %}
+                <h4>Log in to add offers!</h4>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script>
+    const popup = document.querySelector("#popup")
+    const popupOwner = document.querySelector("#popupOwner")
+    const popupItemname = document.querySelector("#popupItemname")
+    const popupDesc = document.querySelector("#popupDesc")
+    const popupAmount = document.querySelector("#popupAmount")
+    function displayPopup(element){
+        console.log(element)
+        popup.style.display = "block";
+        let owner = element.querySelector(".offer-owner");
+        let desc = element.querySelector(".offer-desc");
+        let item = element.querySelector(".offer-item");
+        let amount = element.querySelector(".offer-amount-number")
+        
+        popupOwner.innerHTML = owner.innerHTML
+        popupDesc.innerHTML = desc.innerHTML
+        popupItemname.innerHTML = item.innerHTML
+        popupAmount.innerHTML = "Amount: " + amount.innerHTML
+    }
+    function closePopup(){
+        popup.style.display = "none";
+    }
+    const but1 = document.querySelector("#popupDeliveryButton1")
+    const but2 = document.querySelector("#popupDeliveryButton2")
+    function changePickupOption(){
+        if(but1.classList.contains("filter-inactive")){
+            but1.classList.remove("filter-inactive")
+            but1.classList.add("filter-active")
+
+            but2.classList.remove("filter-active")
+            but2.classList.add("filter-inactive")
+        }
+        else{
+            but2.classList.remove("filter-inactive")
+            but2.classList.add("filter-active")
+
+            but1.classList.remove("filter-active")
+            but1.classList.add("filter-inactive")            
+        }
+    }
+</script>
+{% endblock %}

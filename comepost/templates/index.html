@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/base.css') }}">
+
+<div class="container text-left">
+  <a href="#">  <input type="image" src="{{ url_for('static', filename='/img/arrow-01.png') }}" class="top" style="max-height: 40px" /> </a>
+<div class="row">
+    <div class="col-lg-6 centered left-edge">
+      <!-- <img src="{{ url_for('static', filename='/img/gradient-01.png') }}" class="intro-gradient"> -->
+       <h3> for the benefit of us all</h3>
+        <h1 style="color: #444F22 !important; padding:3vh 0 3vh 0 !important"> Perfect and <br>eco-friendly symbiosis</h1>
+        <img src="{{ url_for('static', filename='/img/smudge-01.png') }}" class="intro-smudge">
+          <p style="line-height: 1.7rem">Imagine how much food is wasted daily in stores and supermarkets.<br>With <b>ComePost</b> you can make use of the natural process of biodegradation and trade the compost made from the wasted bio-waste for fresh fruits and vegetables straight from the farmers that will use the compost for their crops.</p>
+        <div class="row">
+    <div class="col-3">
+                <button class="button2" onclick="location.href='/market'">I want compost</button>
+            </div>
+    <div class="col-3">
+                <button class="button2" onclick="location.href='/market'">I want products</button>
+
+            </div>
+  
+        </div>
+        <div class="row">
+              <div class="col-6">
+                        <button class="button3" style="width:19.5rem !important" onclick="location.href='/individuals'">What can I do as an individual?</button>
+
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="col">
+<img src="{{ url_for('static', filename='/img/Farmer_Green-01.png') }}" class="intro-plama">
+    </div>
+ </div>
+
+
+<div class="row" style="text-align: center;margin-top: -5rem;">
+    <h5 style="color:#5e6282">Join the community</h5>
+        <h2 style="color: #14183E;">How does it work?</h2>
+      </div>
+    
+<div class="row" style="margin-top:3rem;margin-bottom: 6rem;">
+        <div class="col-3" >
+    <img src="{{ url_for('static', filename='/img/NaturalCompost-01.png') }}">
+    </div>
+    
+      <div class="col-3">
+    <img src="{{ url_for('static', filename='/img/CommonInterest-01.png') }}">
+    </div>
+    
+      <div class="col-3">
+    <img src="{{ url_for('static', filename='/img/Exchange-01.png') }}">
+    </div>
+    
+      <div class="col-3">
+    <img src="{{ url_for('static', filename='/img/PointSystem-01.png') }}">
+    </div>
+    </div>  
+    
+<div class="row" style="text-align: center;">
+    <h5 style="color:#5e6282">Beneficial for all</h5>
+        <h2 style="color: #14183E" >How does it work?</h2>
+      </div>    
+    
+
+<div class="col">
+    <img src="{{ url_for('static', filename='/img/full_farmer-01.png') }}" style="max-width: 100%">
+    </div>
+   
+
+<div class="col">
+    <img src="{{ url_for('static', filename='/img/full_store-01.png') }}" style="max-width: 100%">
+    </div>
+    
+
+    <div class="col">
+       <img src="{{ url_for('static', filename='/img/three_steps-01.png') }}" style="max-width: 85vw;margin-bottom: 5rem">  
+    </div>
+   
+</div>
+
+
+
+{% endblock %}

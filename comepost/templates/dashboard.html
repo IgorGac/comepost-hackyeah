@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/dashboard.css') }}">
+
+<div class="container" style="margin-top: 50px; margin-bottom: 40px;">
+    <div class="row">
+        <div class="col-4">
+            <span style="font-size: 2.5em; font-family: 'PT Sans'; color: #444f22;">Welcome, {{name}}!</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <img class="chart" src="{{ url_for('static', filename='/img/Chart1.gif') }}">
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-2"><div class="color-box lightgreen"></div></div>
+                <div class="col-10" style="display: flex; align-items: center; font-family: 'PT Sans'; font-size: 1.1em;">Stored biowaste</div>
+            </div>
+            <div class="row" style="margin-top: 25px;">
+                <div class="col-2"><div class="color-box darkgreen"></div></div>
+                <div class="col-10" style="display: flex; align-items: center; font-family: 'PT Sans'; font-size: 1.1em;">Traded biowaste</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="dashboard-subtitle">Congratulations! You traded <span style='color: #95c461; font-weight: 300;'>95.11</span> kg of biowaste last month for <span style='color: #95c461; font-weight: 300;'>3.22</span> kg of fresh fruits and vegetables.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-8">
+            <img class="chart2" src="{{ url_for('static', filename='/img/Chart2.gif') }}">
+        </div>
+        <div class="col-4">
+            <div class="row" style="margin-top: 140px;">
+                <div class="col-2"><div class="color-box lightgreen"></div></div>
+                <div class="col-10" style="display: flex; align-items: center; font-family: 'PT Sans'; font-size: 1.1em;">Individuals' biowaste</div>
+            </div>
+            <div class="row" style="margin-top: 25px;">
+                <div class="col-2"><div class="color-box darkgreen"></div></div>
+                <div class="col-10" style="display: flex; align-items: center; font-family: 'PT Sans'; font-size: 1.1em;">Store's biowaste</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="dashboard-subtitle">Great! Your clients brought  <span style='color: #95c461; font-weight: 300;'>11.88</span>% of biowaste last month. It's <span style='color: #95c461; font-weight: 300;'>14.2</span>% more than previous month.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
