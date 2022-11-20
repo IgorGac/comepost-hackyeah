@@ -79,14 +79,23 @@ h5 {
     margin-right: 200px; 
     
 }
+.styled-links{
+    display: inline;
+}
+.styled-links .navbar-link:hover{
+    border-bottom: 2px solid #000;
+}
 .navbar-link{
     text-decoration: none;
     color: #000;
     margin: 0px 15px 0px 15px;
     padding: 10px;
     font-family: 'PT Sans', sans-serif;
-
 }
+.navbar-link:hover{
+    color: #000;
+}
+
 .link-button{
     padding: 5px 20px;
     border: 1px solid #000;
@@ -114,6 +123,7 @@ h5 {
     text-decoration: none;
     font-size: 1.1em;
 }
+
 .footer-subtitle{
     font-size: 1.3em;
     color:#5E6282;
@@ -132,5 +142,5 @@ h5 {
 .navbar-profile{
     color: #000;
     font-size: 1.7em;
-    margin-top: 51px;
+
 }
